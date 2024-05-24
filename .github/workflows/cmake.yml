@@ -16,7 +16,9 @@ jobs:
     steps:
     - name: Install docker
       run: |
-        brew install docker
+        brew install docker docker-buildx
+        docker version
+        docker buildx version
     - name: Checkout
       uses: actions/checkout@v4
     - name: Build
