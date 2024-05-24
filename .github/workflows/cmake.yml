@@ -17,7 +17,7 @@ jobs:
     - name: Install docker
       run: |
         brew install docker
-        until docker version > /dev/null 2>&1; do sleep 1; done
+        colima start
     - name: Checkout
       uses: actions/checkout@v4
     - name: Build
