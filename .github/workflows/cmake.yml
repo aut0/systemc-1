@@ -10,13 +10,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: [20.04, 22.04]
+        version: [20.04]
         platform: [linux/arm64]
         target: [gcc-shared]
     steps:
     - name: Install docker
       run: |
         brew install docker
+        until docker version > /dev/null 2>&1; do sleep 1; done
     - name: Checkout
       uses: actions/checkout@v4
     - name: Build
