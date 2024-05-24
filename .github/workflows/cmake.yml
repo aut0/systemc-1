@@ -7,10 +7,6 @@ on:
 jobs:
   build_windows:
     runs-on: windows-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        target: [gcc-shared, gcc-static, clang-shared, clang-static]
     steps:
     - name: Checkout
       uses: actions/checkout@v4
