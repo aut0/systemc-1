@@ -16,10 +16,10 @@ jobs:
     steps:
     - name: Install docker
       run: |
-        brew install docker docker-buildx
+        brew install docker
     - name: Checkout
       uses: actions/checkout@v4
     - name: Build
       run: |
-        docker buildx build --platform ${{ matrix.platform }} -t systemc_test --build-arg UBUNTU_VERSION=${{ matrix.version }} -f docker/ubuntu.dockerfile .
+        docker build --platform ${{ matrix.platform }} -t systemc_test --build-arg UBUNTU_VERSION=${{ matrix.version }} -f docker/ubuntu.dockerfile .
         docker run -e SYSTEMC_CI_TARGET=${{ matrix.target }} systemc_test
